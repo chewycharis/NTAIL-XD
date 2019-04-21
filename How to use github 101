@@ -1,0 +1,18 @@
+In terminal:
+
+# setting up clone on your local computer
+  sudo apt install git                                                # installs git command
+  git clone insert-directory-here                                     # clones online repository 
+  cd git-directory
+  git config --global user.email "write-your-email@email.com"         # configure identification 
+  git config --global user.name "git-hub-username-here"
+  
+# making changes locally and updating the remote version 
+  git add .                                                           # prepare files for commit
+  git commit                                                          # record changes in directory
+  git push                                                            # update remote version 
+
+# making changes in remote version and updating the local version 
+  git pull                                                            # pulls files from remote version 
+  
+  
