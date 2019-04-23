@@ -9,7 +9,7 @@ In terminal:
   
 # making changes locally and updating the remote version 
   git add .                                                           # prepare files for commit
-  git commit                                                          # record changes in directory
+  git commit -m write-something                                       # record changes in directory
   git push                                                            # update remote version 
 
 # making changes in remote version and updating the local version 
