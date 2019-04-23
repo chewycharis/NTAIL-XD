@@ -4,7 +4,7 @@ import os
 
 os.chdir('/homes/cfu/Desktop/cluster_analysis')
 protein_list=["cabs_7", "cabs_8" ,"parallel_3" ,"yrotate_6", "ztranslate_2", "ztranslate_5", "sonia_1", "xrotate_3" ]
-k=[39 ,14, 9, 9, 7, 6, 15, 2] 
+k=[40 ,15, 10, 10, 8, 7, 16, 3] 
 colors=['r','b','g','saddlebrown','orange','violet','hotpink','grey','indianred','teal','black','goldenrod','darkslateblue','cyan'] #wow  I must have been bored
 
 
@@ -20,7 +20,7 @@ for p in range(0, 8): #for each protein
 		size.append(os.path.getsize(protein+'_cluster_'+str(f)+'_protein-sasa-vs-angleCD.dat')) #size of files in a list 
 	if len(size) <5:
 		index=np.array(range(0, len(size)) )#you might not have more than 5 clusters 
-	else:
+	else:39
 		index=np.argpartition(np.array(size),-5)[-5:]  # index of 5 largest cluster, (larger cluster = larger file)
 	#append data 
 	list1=[]
@@ -46,7 +46,7 @@ for p in range(0, 8): #for each protein
 	for f in range(0, k[p]):
 		size.append(os.path.getsize(protein+'_cluster_'+str(f)+'_ntail-xd-distance-vs-angleCD.dat')) #size of files in a list 
 	if len(size) <5:
-		index=np.array(range(0, len(size)) )#you might not have more than 5 clusters 
+		index=np.array(range(0, len(size)) )#you might not have more than 5 clusters 3939
 	else:
 		index=np.argpartition(np.array(size),-5)[-5:]  # index of 5 largest cluster, (larger cluster = larger file)
 	#append data 
