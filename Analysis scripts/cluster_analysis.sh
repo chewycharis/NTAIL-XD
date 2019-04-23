@@ -17,7 +17,7 @@ for x in $(seq 0 $k);
 	python $HOME/Desktop/calc_helix_angle.py $pdbID'_cluster_25ns_'$x #angle
 	rm *vectors*; rm *angle-A*; rm *angle-BD*
         # ntail-xd distance 
-	gmx distance  -f $pdbID' cluster_25ns_'$x.xtc -s $pdbID'_protein.gro' -n $pdbID.ndx -select 10 12 -selrpos res_com  -oav $pdbID'_'$x'_ntail-xd'.xvg
+	gmx pairdist  -f $pdbID' cluster_25ns_'$x.xtc -s $pdbID'_protein.gro' -n $pdbID.ndx -ref 10 -sel 12 -selrpos res_com  -o $pdbID'_'$x'_ntail-xd'.xvg
 	#alpha helicity 
 	python $HOME/Desktop/dssp.py $pdbID'_protein.gro' $pdbID' cluster_25ns_'$x.xtc $pdbID'_cluster_25ns_'$x 
 
