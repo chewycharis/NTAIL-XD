@@ -20,6 +20,8 @@ for x in $(seq 0 $k);
 	gmx pairdist  -f $pdbID' cluster_25ns_'$x.xtc -s $pdbID'_protein.gro' -n $pdbID.ndx -ref 10 -sel 12 -selrpos res_com  -o $pdbID'_'$x'_ntail-xd'.xvg
 	#alpha helicity 
 	python $HOME/Desktop/dssp.py $pdbID'_protein.gro' $pdbID' cluster_25ns_'$x.xtc $pdbID'_cluster_25ns_'$x 
+	#ntail tip -alpha2 tip distance 
+	gmx pairdist  -f $pdbID' cluster_25ns_'$x.xtc -s $pdbID'_protein.gro' -n $pdbID.ndx -ref 15 -sel 16 -selrpos res_com  -o $pdbID'_'$x'_ntail-xd'.xvg
 
 done
 
