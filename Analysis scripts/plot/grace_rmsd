@@ -1,0 +1,7 @@
+﻿TITLE "RMSD of Clusters" 
+XAXIS LABEL "Frame Number"
+s0.x=s0.x*0.1
+AUTOSCALE
+HARDCOPY DEVICE "PNG"
+PAGE SIZE 900, 700
+PRINT
