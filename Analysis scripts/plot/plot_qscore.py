@@ -2,9 +2,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
-labels=['cabs_7','cabs_8', 'parallel_3','sonia_1','xrotate_3', 'yrotate_6','ztranslate_2','ztranslate_5']
+labels=['cabs_8']#, 'cabs_7','parallel_3','sonia_1','xrotate_3', 'yrotate_6','ztranslate_2','ztranslate_5']
 dic={}
 counter=0; 
+
 for counter in range(0,len(labels)):
     l=[]
     for x in os.listdir("/home/chuhui/Desktop/qscore/"+labels[counter]+"/"):
@@ -13,7 +14,6 @@ for counter in range(0,len(labels)):
             l.append(np.loadtxt("/home/chuhui/Desktop/qscore/"+labels[counter]+"/"+x))
             dic[labels[counter]]=l
     counter+=1
-
 
 
 plt.rcParams.update({'font.size':12})
