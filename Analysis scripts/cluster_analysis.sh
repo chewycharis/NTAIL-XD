@@ -17,20 +17,23 @@ for x in $(seq 0 $k);
 	python $HOME/Desktop/calc_helix_angle.py $pdbID'_cluster_25ns_'$x #angle
 	rm *vectors*; rm *angle-A*; rm *angle-BD*
         # ntail-xd distance 
-	gmx distance  -f $pdbID' cluster_25ns_'$x.xtc -s $pdbID'_protein.gro' -n $pdbID.ndx -select 10 12 -selrpos res_com  -oall $pdbID'_'$x'_ntail-xd'.xvg
+	gmx pairdist  -f $pdbID' cluster_25ns_'$x.xtc -s $pdbID'_protein.gro' -n $pdbID.ndx -ref 10 -sel 12 -selrpos res_com  -o $pdbID'_'$x'_ntail-xd'.xvg
 	#alpha helicity 
 	python $HOME/Desktop/dssp.py $pdbID'_protein.gro' $pdbID' cluster_25ns_'$x.xtc $pdbID'_cluster_25ns_'$x 
+	#ntail tip -alpha2 tip distance 
+	gmx pairdist  -f $pdbID' cluster_25ns_'$x.xtc -s $pdbID'_protein.gro' -n $pdbID.ndx -ref 15 -sel 16 -selrpos res_com  -o $pdbID'_'$x'_tip-tip'.xvg
 
 done
 
 #organizing files... 
-mkdir rms; mkdir sasa; mkdir angleBC; mkdir angleCD; mkdir ntail-xd-distance; mkdir helicity
+mkdir rms; mkdir sasa; mkdir angleBC; mkdir angleCD; mkdir ntail-xd-distance; mkdir helicity; mkdir tip-tip-distance 
 mv *ntail-xd.xvg ntail-xd-distance 
 mv *rms*.xvg rms
 mv *sasa*.xvg sasa
 mv *angle-CD.dat angleCD
 mv *angle-BC.dat angleBC
 mv *helicity*.txt helicity 
+mv *tip-tip.xvg tip-tip-distance
 
 
 
