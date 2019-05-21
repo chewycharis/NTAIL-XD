@@ -35,12 +35,13 @@ from fileinput import FileInput
 from copy import copy
 from string import replace
 from string import rstrip 
+from sys import argv
 
-file_directory='/home/chuhui/Desktop'
+file_directory=argv[1]
 os.chdir(file_directory)
-PDB_FILE = 'NIV-NTAIL-XD_renumber_cap.pdb'
-RTP_FILE = "merged.rtp" 
-PDB_FILE_ATOMS_CORRECTED = PDB_FILE+"_corrected.pdb"
+PDB_FILE = argv[2] 
+RTP_FILE = argv[3]  
+PDB_FILE_ATOMS_CORRECTED = PDB_FILE[:-4]+"_corrected.pdb"
 
 
 

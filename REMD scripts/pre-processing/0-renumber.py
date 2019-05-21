@@ -4,14 +4,14 @@
 import os 
 import chimera
 from chimera import runCommand as rc
+from sys import argv
+directory= argv[2]
+protein=argv[3]
 
 ##########################################
-directory='/home/chuhui/Desktop'
-#enter working directory here
-os.chdir(directory)  
 
-protein='NIV-NTAIL-XD.pdb'
-#pdbfile with .pdb extension  
+#enter working directory here
+os.chdir(directory)   
 
 ############################################
 
@@ -23,7 +23,7 @@ rc("open " + protein)
 rc ("addh")
 # renumber residues 
 rc("resrenumber 1 #0:.A; resrenumber 53 #0:.B")
-rc("write format pdb #0 " + foldername+"/"+protein[:-4]+"_renumber.pdb")
+rc("write format pdb #0 " + protein[:-4]+"_renumber.pdb")
 rc("close all")
 rc("stop")
 	

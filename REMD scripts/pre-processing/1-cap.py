@@ -1,12 +1,15 @@
 import os
 import pymol
 from pymol import cmd, stored
+from sys import argv
 #this file is the the second step for cyanylation.
 #it caps n/c terminals of the protein with acetyl/methyl amine. 
 #ChuHui'19
 
-os.chdir("/home/chuhui/Desktop")     #working directory
-protein="NIV-NTAIL-XD_renumber.pdb"      #filename in working directory, with .pdb extension 
+directory= argv[2]
+protein=argv[3]
+
+os.chdir(directory)     #working directory
 cmd.load(protein)
 
 ####caps the protein####
