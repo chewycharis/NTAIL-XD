@@ -11,10 +11,10 @@
 #########################################################################
 
 source /packages/gromacs5/bin/GMXRC                                            #reference path to gromacs script
-export GMXLIB=/homes/cfu/NTail-XD/NiV/gromacs_files/forcefields                #export path to charmm36 forcefield  
+export GMXLIB=/homes/cfu/forcefields                #export path to charmm36 forcefield  
 
-pdbID=no_mscn
-cd ~/NTail-XD/NiV/gromacs_files
+pdbID=NIV-NTAIL-XD-parallel
+cd ~/Desktop
 mkdir $pdbID; mv $pdbID".pdb" $pdbID 
 cd $pdbID
 
