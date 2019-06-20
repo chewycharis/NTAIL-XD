@@ -1,0 +1,53 @@
+June 20, 2019  
+ChuHui
+
+1. Data and Scripts 
+
+1.1 Synology (data storage)
+All relevant REMD data have been backed up to clonderg@kinscserver.synology.me:\$HOME/chuhui
+The lowest temperature trajectory files from 50 ns REMD simulations with 8 different starting structures and temperature range 300-379K are in "NIV-NTAIL-XD-8-starting-structures-30replica-50ns.tar.gz"
+Trajectory files from all replica in a 20 ns REMD simulation with NIV-NTAIL-XD-parallel structure (original structure from Longhi group) and temperature range 300-450K are in "NIV-NTAIL-XD-parallel-48replica-20ns.tar.gz" 
+Trajectory files from all replica in a 40 ns REMD simulation with NIV-NTAIL-XD-antiparallel structure (structure from CABS-dock) and temperature range 300-450K are in "NIV-NTAIL-XD-parallel-51replica-40ns.tar.gz" 
+CABS-dock output structures with extended NTAIL sequence "RLTNSLLNLRSRLAAKAAKEAASSNATDD" are in "CABS-dock-NTAIL-extended.tar.gz" 
+See mdout.mdp and *remd.log for simulation setup and results 
+
+1.2 Github (scripts storage)
+All relevant scripts have been uploaded to github.com/chewycharis/NTAIL-XD; The most useful scripts are located in the folders "REMD scripts", "Predict Cluster (modified from Annie Westerlund's code)", and "Spectral Clustering scripts"
+Scripts are designed to be run according to the numerical order of the script's name: e.g. run script 0.* before running script 1.*, etc
+.joblib files for predicting CaM clusters can be found here: https://github.com/anniewesterlund/CaM-cluster-predictor
+
+
+
+2. Simulation Progress in May-June, 2019 
+
+2.1 Completed Jobs
+-- Appropriate number of replica have been determined for both parallel (48) and antiparallel (51) system 
+-- Most efficient way to run REMD on KNL nodes is determined to be -N (# of replica) -n (# of replica) x 64
+-- REMD simulations have been run for 20 ns for parallel system and 40ns for antiparallel system 
+
+2.2 Ongoing Jobs
+There are currently 3 ongoing jobs in STAMPEDE2; they are in the queue at the moement. After they are run, data will be backed up to chuhuifu@stampede2.tacc.utexas.edu:\$WORK/after-062019
+JOBID    PARTITION   NAME                    NODES  DESCRIPTION
+3824141  normal      remd_parallel-40ns      48     extend REMD run to 40ns for NIV-NTAIL-XD-parallel structure
+3824191  normal      antiparallel-remd-60ns  51     extend REMD run to 60ns for NIV-NTAIL-XD-antiparallel structure 
+3833365  normal      launcher-equil          2      equilibration for umbrella sampling of NIV-NTAIL-XD-A65C structure 
+
+
+
+3. Next Steps
+ 
+-- Run REMD simulation for 100ns for both systems 
+-- Cluster REMD simulation trajectory 
+   Use Annie's code to determine whether clusters are distinct enough: e.g. extract 10 frames from each cluster and train neural network using the rest of the frames, and then predict clusters for extracted frames. If extracted frames do not receive correct assignment, consider merging related clusters
+ 
+See Rosalind's files and Talk to Casey about the following steps:
+-- Run WHAM and determine most probable dihedral angles for MSCN probe 
+   Consider running equilibration with dihedral restraints; use launcher for submitting jobs; see Rosalind's github/dropbox folders for more instruction 
+-- Run short MD simulation for each structure with a probable orientation of MSCN
+-- Run SolEFP calculations for each MD trajectory 
+-- Use Bayesian approach for comparing experimental and simulated lineshapes 
+
+
+
+
+
