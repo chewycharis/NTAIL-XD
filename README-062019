@@ -31,7 +31,9 @@ JOBID    PARTITION   NAME                    NODES  DESCRIPTION
 3824141  normal      remd_parallel-40ns      48     extend REMD run to 40ns for NIV-NTAIL-XD-parallel structure
 3824191  normal      antiparallel-remd-60ns  51     extend REMD run to 60ns for NIV-NTAIL-XD-antiparallel structure 
 3833365  normal      launcher-equil          2      equilibration for umbrella sampling of NIV-NTAIL-XD-A65C structure 
-
+**updates**
+REMD jobs are done and backed up to the folder specified above
+The launcher job didn't run. Please check launcher-equil.e3833365 for more infomration 
 
 
 3. Next Steps
